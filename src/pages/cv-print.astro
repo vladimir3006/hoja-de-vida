@@ -1,0 +1,459 @@
+---
+import { experiencias } from "../data/experiencia.js";
+import { formaciones } from "../data/formacion.js";
+
+const baseUrl = import.meta.env.BASE_URL;
+const principales = formaciones.filter((item) =>
+  [
+    "PostGrado en Docencia Superior",
+    "PostGrado & Maestría en Informática Educativa",
+    "Licenciatura en Educación",
+    "Profesorado en Teología Pastoral"
+  ].includes(item.titulo)
+);
+const certificaciones = formaciones.find((item) => item.titulo === "Certificaciones");
+const conferencias = formaciones.find((item) => item.titulo === "Conferencias impartidas");
+const habilidades = formaciones.find((item) => item.titulo === "Habilidades e idiomas");
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV PDF | Vladimir Valladares</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <div class="screen-actions">
+      <a href={`${baseUrl}/`} class="back-link">Volver al sitio</a>
+      <button type="button" id="printButton">Descargar PDF</button>
+    </div>
+
+    <main class="sheet-stack">
+      <section class="sheet page-one">
+        <header class="cv-header">
+          <img src={`${baseUrl}/assets/img/fotodeperfil.png`} alt="Foto de Vladimir Valladares" />
+          <div>
+            <p class="eyebrow">Curriculum vitae</p>
+            <h1>Dagoberto Vladimir Valladares</h1>
+            <p class="role">Diseñador Instruccional | Consultor Educativo | Especialista en eLearning</p>
+            <div class="contact-line">
+              <span>vvalladares@didaskalia.org</span>
+              <span>didaskalia.org</span>
+              <span>linkedin.com/in/vladimirvalladares</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="profile-block">
+          <h2>Perfil profesional</h2>
+          <p>
+            Pedagogo, diseñador instruccional y consultor educativo especializado en el desarrollo eLearning,
+            la creación de ambientes virtuales y experienciales de aprendizaje, y el acompañamiento pedagógico
+            a instituciones educativas, organizaciones sociales y equipos de formacion. Integro fundamentos
+            pedagógicos, tecnología educativa, metodologías activas y diseño de experiencias para crear
+            soluciones formativas pertinentes, escalables y centradas en las personas.
+          </p>
+        </section>
+
+        <section class="experience-block">
+          <h2>Experiencia profesional</h2>
+          <div class="experience-grid">
+            {experiencias.map((item) => (
+              <article class="experience-item">
+                <div class="item-head">
+                  <h3>{item.titulo}</h3>
+                  <span>{item.periodo}</span>
+                </div>
+                <p class="institution">{item.institucion}</p>
+                <ul>
+                  {item.descripcion.slice(0, 2).map((linea) => (
+                    <li>{linea}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+      </section>
+
+      <section class="sheet page-two">
+        <section class="two-col">
+          <div>
+            <h2>Formación académica</h2>
+            <div class="timeline">
+              {principales.map((item) => (
+                <article class="timeline-item">
+                  <div class="item-head">
+                    <h3>{item.titulo}</h3>
+                    <span>{item.periodo}</span>
+                  </div>
+                  <p class="institution">{item.institucion}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h2>Habilidades e idiomas</h2>
+            <ul class="tag-list">
+              {habilidades?.diploma?.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Certificaciones</h2>
+          <ul class="compact-list columns">
+            {certificaciones?.diploma?.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Conferencias impartidas</h2>
+          <ul class="compact-list">
+            {conferencias?.diploma?.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <footer class="cv-footer">
+          <strong>Vladimir Valladares | Didaskalia 3.0</strong>
+          <span>Innovación educativa, diseño instruccional y desarrollo eLearning</span>
+        </footer>
+      </section>
+    </main>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --ink: #172033;
+        --muted: #5f6b7a;
+        --line: #d8e1e8;
+        --paper: #ffffff;
+        --soft: #f3f7f9;
+        --accent: #155e75;
+        --accent-soft: #d9eef3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #dfe6ea;
+        color: var(--ink);
+        font-family: "Raleway", sans-serif;
+      }
+
+      .screen-actions {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px;
+        background:
+          linear-gradient(180deg, rgba(223, 230, 234, 0.96), rgba(223, 230, 234, 0.78));
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(21, 94, 117, 0.12);
+      }
+
+      .screen-actions a,
+      .screen-actions button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(21, 94, 117, 0.28);
+        font: 700 13px "Raleway", sans-serif;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+      }
+
+      .screen-actions a:hover,
+      .screen-actions button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 32px rgba(15, 23, 42, 0.16);
+      }
+
+      .screen-actions a:focus-visible,
+      .screen-actions button:focus-visible {
+        outline: 3px solid rgba(21, 94, 117, 0.28);
+        outline-offset: 2px;
+      }
+
+      .back-link {
+        color: var(--accent);
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      #printButton {
+        color: white;
+        background: linear-gradient(135deg, #155e75, #0f4f63);
+        border-color: rgba(15, 79, 99, 0.95);
+      }
+
+      .sheet-stack {
+        display: grid;
+        gap: 24px;
+        padding: 24px;
+      }
+
+      .sheet {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 0.48in 0.56in;
+        background: var(--paper);
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sheet::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 0.16in;
+        background: var(--accent);
+      }
+
+      .cv-header {
+        display: grid;
+        grid-template-columns: 1.22in 1fr;
+        gap: 0.24in;
+        align-items: center;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 0.18in;
+      }
+
+      .cv-header img {
+        width: 1.08in;
+        height: 1.08in;
+        object-fit: cover;
+        border: 4px solid var(--accent-soft);
+      }
+
+      .eyebrow {
+        margin: 0 0 0.03in;
+        color: var(--accent);
+        font-size: 8.5pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 23pt;
+        line-height: 1.02;
+        color: var(--ink);
+        letter-spacing: 0;
+      }
+
+      .role {
+        margin: 0.05in 0 0.07in;
+        color: var(--accent);
+        font-size: 10.5pt;
+        font-weight: 700;
+      }
+
+      .contact-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.08in 0.18in;
+        color: var(--muted);
+        font-size: 8.2pt;
+        font-weight: 600;
+      }
+
+      section {
+        margin-top: 0.2in;
+      }
+
+      h2 {
+        margin: 0 0 0.09in;
+        color: var(--accent);
+        font-size: 10.5pt;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .profile-block p {
+        margin: 0;
+        padding: 0.13in 0.16in;
+        background: var(--soft);
+        border-left: 4px solid var(--accent);
+        color: var(--ink);
+        font-size: 8.6pt;
+        line-height: 1.45;
+      }
+
+      .experience-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.12in 0.2in;
+      }
+
+      .experience-item,
+      .timeline-item {
+        break-inside: avoid;
+        padding-bottom: 0.09in;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .item-head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.08in;
+        align-items: start;
+      }
+
+      h3 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 8.6pt;
+        line-height: 1.18;
+        text-transform: uppercase;
+      }
+
+      .item-head span {
+        color: var(--accent);
+        font-size: 7.3pt;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .institution {
+        margin: 0.035in 0 0.045in;
+        color: var(--muted);
+        font-size: 7.8pt;
+        font-weight: 700;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 0.13in;
+      }
+
+      li {
+        margin: 0 0 0.035in;
+        color: var(--ink);
+        font-size: 7.55pt;
+        line-height: 1.28;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        gap: 0.28in;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 0.09in;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.055in;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tag-list li {
+        margin: 0;
+        padding: 0.045in 0.065in;
+        background: var(--soft);
+        color: var(--accent);
+        border: 1px solid var(--accent-soft);
+        font-size: 7.5pt;
+        font-weight: 700;
+      }
+
+      .compact-list {
+        display: grid;
+        gap: 0.025in;
+      }
+
+      .compact-list.columns {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0.28in;
+      }
+
+      .cv-footer {
+        position: absolute;
+        left: 0.56in;
+        right: 0.56in;
+        bottom: 0.35in;
+        display: flex;
+        justify-content: space-between;
+        gap: 0.2in;
+        padding-top: 0.12in;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 7.5pt;
+      }
+
+      .cv-footer strong {
+        color: var(--accent);
+      }
+
+      @page {
+        size: letter;
+        margin: 0;
+      }
+
+      @media print {
+        .screen-actions {
+          display: none;
+        }
+
+        body {
+          background: white;
+        }
+
+        .sheet-stack {
+          display: block;
+          padding: 0;
+        }
+
+        .sheet {
+          width: 8.5in;
+          height: 11in;
+          min-height: 11in;
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+
+        .sheet:last-child {
+          page-break-after: auto;
+        }
+      }
+    </style>
+
+    <script>
+      document.getElementById("printButton")?.addEventListener("click", () => {
+        window.print();
+      });
+    </script>
+  </body>
+</html>
