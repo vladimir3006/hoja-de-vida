@@ -1,0 +1,64 @@
+---
+import TitleSection from "./UI/TitleSection.astro"
+---
+<section id="aboutme" class="max-w-6xl mx-auto mt-12 snap-start min-h-screen pb-24 md:pb-0	">
+
+    <div class="px-8 py-10 mb-4">
+
+        <TitleSection titulo="Sobre mí"/>
+
+        <p class="text-center text-slate-600 mb-6 text-pretty">Dedicado al diseño de ambientes de aprendizaje, con especial énfasis en la capacitación de jóvenes y adultos encargados de crear y acompañar procesos educativos.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 sm:p-4">
+
+    <div class="flex justify-center ">
+
+      <div class="group relative inline-block">
+
+    <!-- Marco + foto -->
+    <div class="
+      relative
+      mx-auto                  
+         w-11/12 max-w-[280px] 
+         sm:w-full sm:max-w-sm 
+
+       before:content-[''] before:absolute before:-inset-1 md:before:-inset-4
+       before:bg-cyan-800/50 before:rounded-xl before:shadow-xl
+       before:rotate-[3deg] before:transition-transform
+       group-hover:before:-translate-y-2 group-hover:before:rotate-[-6deg]
+       after:content-[''] after:absolute after:-inset-1 md:after:-inset-4
+       after:bg-cyan-800 after:rounded-xl after:shadow-xl
+       after:rotate-[-4deg] after:transition-transform
+       group-hover:after:-translate-y-2 group-hover:after:rotate-[8deg]
+    ">
+
+      <img
+        src={`${import.meta.env.BASE_URL}/assets/img/fotodeperfil.png`}
+        alt="foto de Vladimir Valladares"
+        class="w-full max-w-sm aspect-square object-cover rounded-xl
+               relative z-20 transition-transform
+               group-hover:-translate-y-2 group-hover:scale-105" />
+    </div>
+  </div>
+
+
+    </div>
+    
+    <div class="px-6">
+        <h3 class="mb-6 text-3xl font-raleway font-medium text-slate-800 text-center">Pedagogo & Consultor Educativo</h3>
+
+        <p class=" text-slate-600 mb-4  text-pretty font-semibold">Consultor educativo, pedagogo y profesor universitario con más de 20 años de experiencia en la formación de líderes, docentes y asesores juveniles en América Latina.</p>
+        
+        <p class=" text-slate-600 mb-4 text-pretty">Licenciado en <strong> Teología Pastoral por la Universidad Don Bosco </strong>(El Salvador) y Máster en  <strong>Tecnología Educativa por la Univesidad Tecnológica de Panamá </strong>, con una trayectoria amplia en el diseño y facilitación de procesos formativos en contextos educativos, comunitarios y pastorales. He sido autor y redactor de materiales pedagógicos y teológicos, incluyendo la colección de libros de <i>Educación Religiosa Escolar </i>de la Universidad Don Bosco y </i>el Itinerario Formativo Provincial de los Grupos Juveniles Magis </i>para la Compañía de Jesús en Centroamérica.</p>
+
+         <p class=" text-slate-600 text-pretty">Actualmente me desempeño como <strong> consultor en educación, especializado en diseño instruccional, desarrollo eLearning y creación de ambientes de aprendizaje experiencial </strong>, tanto presenciales como virtuales. Colaboro con universidades, ONG y empresas en el desarrollo de soluciones de formación centradas en metodologías activas, aprendizaje personalizado y tecnología educativa. Soy fundador de <strong> Didaskalia 3.0, </strong> consultora enfocada en innovación educativa y desarrollo e-learning.</p>
+        
+        
+               
+    
+    </div>
+
+    </div>
+       
+</section>

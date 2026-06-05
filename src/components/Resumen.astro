@@ -1,0 +1,75 @@
+---
+import TitleSection from "./UI/TitleSection.astro"
+
+import { formaciones } from "../data/formacion.js";
+import { experiencias} from "../data/experiencia.js";
+---
+<section id="resumem" class="snap-start min-h-screen flex flex-col justify-center max-w-6xl mx-auto px-4 py-8">
+  <TitleSection titulo="Hoja de vida" />
+
+  <div class="grid md:grid-cols-2 gap-8 mt-8">
+    
+    <!-- Formación -->
+    <div>
+      <h3 class="mb-6 text-2xl sm:text-3xl font-raleway font-medium text-slate-800">Formación</h3>
+
+      {formaciones.map((item) => (
+        <div class="relative pl-5 pb-5 border-l-2 border-cyan-800 
+                    before:content-[''] before:absolute before:w-4 before:h-4 before:rounded-full before:left-[-9px] before:top-0 before:bg-white before:border-2 before:border-cyan-800">
+
+          <h4 class="font-semibold text-base sm:text-lg uppercase font-raleway text-cyan-900 mb-2.5">
+            {item.titulo}
+          </h4>
+
+          {item.periodo && item.badgeColor && (
+            <h5 class={`text-xs px-4 py-2 inline-block font-semibold mb-2.5 rounded-2xl ${item.badgeColor}`}>
+              {item.periodo}
+            </h5>
+          )}
+
+          {item.institucion && (
+            <h6 class="text-slate-800 font-bold mb-2">{item.institucion}</h6>
+          )}
+
+          {item.descripcion1 && <p class="text-base text-slate-800 mb-2">{item.descripcion1}</p>}
+          {item.descripcion2 && <p class="text-base text-slate-800">{item.descripcion2}</p>}
+
+          {item.diploma && (
+            <ul class="list-disc pl-5">
+              {item.diploma.map((linea) => (
+                <li class="text-base text-slate-800 mb-2">{linea}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Experiencia -->
+    <div>
+      <h3 class="mb-6 text-2xl sm:text-3xl font-raleway font-medium text-slate-800">Experiencia Profesional</h3>
+
+      {experiencias.map((item) => (
+        <div class="relative pl-5 pb-5 border-l-2 border-cyan-800 
+                    before:content-[''] before:absolute before:w-4 before:h-4 before:rounded-full before:left-[-9px] before:top-0 before:bg-white before:border-2 before:border-cyan-800">
+
+          <h4 class="font-semibold text-base sm:text-lg uppercase font-raleway text-cyan-900 mb-2.5">
+            {item.titulo}
+          </h4>
+
+          <h5 class={`text-xs px-4 py-2 inline-block font-semibold mb-2.5 rounded-2xl ${item.badgeColor}`}>
+            {item.periodo}
+          </h5>
+
+          <h6 class="text-slate-800 font-bold mb-2">{item.institucion}</h6>
+
+          <ul class="list-disc pl-5">
+            {item.descripcion.map((linea) => (
+              <li class="text-base text-slate-800 mb-2">{linea}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

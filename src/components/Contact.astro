@@ -1,0 +1,96 @@
+---
+import TitleSection from "./UI/TitleSection.astro";
+import PortfolioFillIcon from "../components/icons/PortfolioFillIcon.astro";
+import EmailIcon from "../components/icons/EmaiIcon.astro";
+import WebFillIcon from "../components/icons/WebFillIcon.astro"
+
+
+---
+<section id="contact" class="snap-start min-h-screen flex flex-col justify-center items-center px-4 py-8 max-w-6xl mx-auto">
+  
+  <!-- Título -->
+  <header class="mb-10 text-center">
+    <TitleSection titulo="Contáctame" />
+    <p class="text-slate-600">¿Tienes un proyecto o colaboración en mente? ¡Conversemos!</p>
+  </header>
+
+  <!-- Tarjetas de contacto -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 justify-items-center gap-6 text-center w-full mb-10">
+    
+    <!-- Email -->
+    <div id="emailCard"
+         class="group flex flex-col items-center justify-center rounded-xl space-y-2 bg-slate-100 max-w-sm w-full h-40
+                hover:shadow-md hover:shadow-cyan-900/30 hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+      <div id="emailContent" class="flex flex-col items-center space-y-2">
+        <EmailIcon />
+        <h3 class="text-xl sm:text-2xl text-slate-800 font-medium mb-2">Email</h3>
+        <p class="text-sm sm:text-base text-slate-700 group-hover:text-cyan-700 transition">
+          vvalladares@didaskalia.org
+        </p>
+      </div>
+      <div id="copiedMessage" class="hidden text-cyan-700 text-lg font-semibold">
+        ¡Email copiado!
+      </div>
+    </div>
+
+    <!-- Portflio -->
+    <a href="https://didaskalia.org/portafolio/" target="_blank"
+       class="group flex flex-col items-center justify-center rounded-xl space-y-2 bg-slate-100 max-w-sm w-full h-40
+              hover:shadow-md hover:shadow-cyan-900/30 hover:-translate-y-2 transition-all duration-300">
+      <PortfolioFillIcon />
+      <h3 class="text-xl sm:text-2xl text-slate-800 font-medium mb-2">Portafolio</h3>
+      <p class="text-sm sm:text-base text-slate-700 group-hover:text-cyan-700 group-hover:underline">
+        didaskalia.org/portafolio
+      </p>
+    </a>
+  
+
+   <!-- Sitio web -->
+    <a href="https://didaskalia.org/" target="_blank"
+       class="group flex flex-col items-center justify-center rounded-xl space-y-2 bg-slate-100 max-w-sm w-full h-40
+              hover:shadow-md hover:shadow-cyan-900/30 hover:-translate-y-2 transition-all duration-300">
+      <WebFillIcon />
+      <h3 class="text-xl sm:text-2xl text-slate-800 font-medium mb-2">Sitio web</h3>
+      <p class="text-sm sm:text-base text-slate-700 group-hover:text-cyan-700 group-hover:underline">
+        didaskalia.org
+      </p>
+    </a>
+  </div>
+
+  <!-- Calendario (Tidycal) -->
+  <div class="w-full px-8">
+    <div class="tidycal-embed" data-path="vladimirvalladares/reunion-30-minutos"></div>
+    <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+  </div>
+</section>
+
+<!-- Script de copiar email -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const card = document.getElementById("emailCard");
+    const email = "vvalladares@didaskalia.org";
+    const content = document.getElementById("emailContent");
+    const message = document.getElementById("copiedMessage");
+
+    card.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        content.style.display = "none";
+        message.classList.remove("hidden");
+        setTimeout(() => {
+          message.classList.add("hidden");
+          content.style.display = "flex";
+        }, 1000);
+      } catch (err) {
+        message.textContent = "Error al copiar";
+        content.style.display = "none";
+        message.classList.remove("hidden");
+        setTimeout(() => {
+          message.classList.add("hidden");
+          content.style.display = "flex";
+          message.textContent = "¡Email copiado!";
+        }, 1000);
+      }
+    });
+  });
+</script>

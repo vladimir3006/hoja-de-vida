@@ -1,0 +1,32 @@
+---
+import TitleSection from "./UI/TitleSection.astro"
+import {servicios} from "../data/servicios.js";
+
+---
+<section id="services" class="snap-start min-h-screen flex flex-col justify-center px-4 py-8 max-w-6xl mx-auto">
+  <!-- Título -->
+  <div class="text-center mb-8">
+    <TitleSection titulo="Áreas de Desarrollo" />
+    <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+      Ámbitos en los que trabajo, y en los que te puedo colaborar.
+    </p>
+  </div>
+
+  <!-- Tarjetas de servicios -->
+  <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 px-4">
+    {servicios.map((s) => {
+      const Icon = s.icono;
+      return (
+        <div class="bg-slate-100 p-8 text-center flex flex-col items-center justify-start rounded-xl
+                    hover:shadow-md hover:shadow-cyan-900/30 hover:-translate-y-2 transition-all duration-300 min-h-[20rem]">
+          <div class={`w-12 h-12 mb-4 ${s.color}`}>
+            <Icon class="w-full h-full" />
+          </div>
+          <h3 class="text-xl sm:text-2xl text-slate-800 font-bold mb-3">{s.titulo}</h3>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{s.descripcion}</p>
+        </div>
+      );
+    })}
+  </div>
+</section>
+

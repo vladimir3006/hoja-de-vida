@@ -1,0 +1,9 @@
+---
+const {titulo}=Astro.props
+---
+<h2 class="uppercase text-center text-4xl text-slate-700 font-raleway font-bold mb-6 p-5 relative
+        before:content-[''] before:absolute before:block before:w-[120px] before:h-[1px] before:bg-[#ddd] before:bottom-[1px] before:left-[calc(50%-60px)]
+        after:content-[''] after:absolute after:block after:w-[40px] after:h-[3px] after:bg-cyan-800 after:bottom-0 after:left-[calc(50%-20px)]
+        ">
+            {titulo}
+        </h2>

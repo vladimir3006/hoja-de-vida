@@ -1,0 +1,123 @@
+---
+import SocialNetworks from "../components/UI/SocialNetworks.astro";
+
+import PortfolioIcon from "../components/icons/PortfolioIcon.astro";
+import FacebookIcon from "../components/icons/FacebookIcon.astro";
+import InstagramIcon from "../components/icons/InstagramIcon.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import WebIcon from "../components/icons/WebIcon.astro";
+
+const redes = [
+  {
+    title: "Facebook Page",
+    icon: FacebookIcon,
+    enlace: "https://www.facebook.com/vladimir.valladares.37/"
+  },
+  {
+    title: "Instagram Page",
+    icon: InstagramIcon,
+    enlace: "https://www.instagram.com/vladimir.valladares/"
+  },
+  {
+    title: "LinkedIn Page",
+    icon: LinkedInIcon,
+    enlace: "https://www.linkedin.com/in/vladimirvalladares/"
+  },
+  {
+    title: "Web Page",
+    icon: WebIcon,
+    enlace: "https://didaskalia.org/"
+  },
+  {
+    title: "Porfolio",
+    icon: PortfolioIcon,
+    enlace: "https://didaskalia.org/portafolio/"
+  }
+];
+
+---
+<section id="hero" class="relative snap-start h-screen  flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">   
+    
+    <div class="absolute inset-0">
+         <img src={`${import.meta.env.BASE_URL}/assets/img/hero-bg.webp`} alt="Imagen de fondo" class="w-full h-full object-cover"> 
+         
+         <div class="absolute inset-0  bg-white/70"></div> 
+    </div>
+    </div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center"> 
+            <h1 class="text-6xl text-slate-700 font-raleway font-bold mb-6 ">Vladimir Valladares</h1>
+            <p class="text-2xl sm:text-3xl text-slate-700 mb-6">Soy  
+                <span class="text-cyan-800" id="typed-text"></span>
+            </p> 
+            
+            <SocialNetworks 
+            datos={redes}
+            containerClass="flex justify-center gap-x-8 text-slate-700 "
+            linkClass=" hover:bg-cyan-100 rounded-full"
+            iconClass="size-10 p-2 hover:text-cyan-800"/>
+
+    </div>
+
+    
+</section>
+
+  <style>
+  #typed-text {
+    border-right: 3px solid oklch(45% 0.085 224.283);
+    white-space: nowrap;
+    overflow: hidden;
+    
+    animation: blinkCursor 0.8s steps(1) infinite;
+  }
+
+  @keyframes blinkCursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: oklch(45% 0.085 224.283); }
+  }
+</style>
+
+  <script>
+  const titles = [
+    "Diseñador Instruccional",
+    "Consultor Educativo",
+    "Profesor Universitario",
+    "Especialista en eLearning",
+    "Facilitador de Metodologías Activas",
+    "Un Eterno Aprendiz"
+    
+  ];
+
+  const typingSpeed = 100; // velocidad al escribir
+  const erasingSpeed = 50; // velocidad al borrar
+  const delayBetween = 2000; // pausa entre palabras
+
+  let titleIndex = 0;
+  let charIndex = 0;
+  const typedTextSpan = document.getElementById("typed-text");
+
+  function type() {
+    if (charIndex < titles[titleIndex].length) {
+      typedTextSpan.textContent += titles[titleIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else {
+      setTimeout(erase, delayBetween);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      typedTextSpan.textContent = titles[titleIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, erasingSpeed);
+    } else {
+      titleIndex = (titleIndex + 1) % titles.length;
+      setTimeout(type, typingSpeed);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (titles.length) setTimeout(type, delayBetween / 2);
+  });
+</script>
+

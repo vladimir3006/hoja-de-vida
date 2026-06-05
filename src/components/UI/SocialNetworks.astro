@@ -1,0 +1,21 @@
+---
+// RedesSociales.astro
+const { datos, iconClass = "", linkClass = "", containerClass = "" } = Astro.props;
+---
+
+<section class={` ${containerClass}`}>
+  {datos.map((dato) => {
+    const Icon = dato.icon;
+    return (
+      <a 
+        href={dato.enlace} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        title={dato.title}
+        class={`transition-all duration-300 ${linkClass}`}
+      >
+        <Icon class={`transition-all duration-300 ${iconClass}`} />
+      </a>
+    );
+  })}
+</section>
