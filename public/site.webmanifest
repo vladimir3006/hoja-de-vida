@@ -1,0 +1,19 @@
+{
+  "name": "Vladimir Valladares | Consultor & Pedagogo",
+  "short_name": "Vladimir Valladares",
+  "icons": [
+    {
+      "src": "/vladimirvalladares/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/vladimirvalladares/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0891B2",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

@@ -11,6 +11,7 @@ const { datos, iconClass = "", linkClass = "", containerClass = "" } = Astro.pro
         href={dato.enlace} 
         target="_blank" 
         rel="noopener noreferrer" 
+        aria-label={dato.title}
         title={dato.title}
         class={`transition-all duration-300 ${linkClass}`}
       >
