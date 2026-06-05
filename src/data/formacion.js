@@ -2,18 +2,48 @@ export const formaciones = [
     {
     titulo: "Certificaciones",
     diploma: [
+        "Innovación Educativa (UNIR, 2026)",
+        "Diplomatura La Educación en la Era de la Inteligencia Artificial: Enfoques, Desafíos y Alternativas (UMET - OEI, 2025)",
         "Educador Google Certificado Nivel 1 y 2",
         "Coaching educativo",
+        "Design Thinking",
+        "Talleres de cuerda",
         "Disciplina positiva",
         "MetaTraining",
         "Gestión, creación y diseño de ambientes virtuales para el aprendizaje",
-        "Diseño audivisual e instrucional"
+        "Diseño audiovisual e instruccional"
+    ]
+  },
+  {
+    titulo: "Conferencias impartidas",
+    periodo: "2022 - 2025",
+    institucion: "Panamá, Colombia, El Salvador y programas virtuales",
+    badgeColor: "bg-cyan-900 text-white",
+    diploma: [
+      "Ponencia Gamificación y elementos lúdicos en la enseñanza, Semana Internacional de Intercambio de Saberes 2025: ITSE Conecta.",
+      "Conferencia Innovación y emprendimiento en el sector educativo, Semana Internacional Cartagena Panamá 2025: UNINÚÑEZ, Tecnológico Comfenalco sede B, USB, UNICOLOMBO, UNISINÚ, UNITECNAR y UAN.",
+      "Ecosistema educativo del futuro: integración de la pedagogía en entornos virtuales, Universidad Dr. Andrés Bello - UDI, 2024",
+      "Desarrollo de objetos virtuales para el aprendizaje universitario, Universidad del Istmo, 2023",
+      "Desarrollo de módulos auto-instruccionales utilizando tecnología, Integracom - MEDUCA, 2022 - 2024",
+      "Conceptos básicos de educación virtual en ambientes virtuales para el aprendizaje, Universidad del Istmo, 2022"
+    ]
+  },
+  {
+    titulo: "Habilidades e idiomas",
+    diploma: [
+      "Docencia",
+      "Gestión de proyectos",
+      "Trabajo en equipo",
+      "Creatividad e innovación",
+      "Comunicación",
+      "Inglés: nivel intermedio",
+      "Portugués: nivel avanzado"
     ]
   },
   {
     titulo: "PostGrado en Docencia Superior",
     periodo: "2023 - 2024",
-    institucion: "Universidad del Itsmo de Panamá",
+    institucion: "Universidad del Istmo de Panamá",
     badgeColor: "bg-cyan-900 text-white",
     descripcion1:
       "Formación que permite incentivar, de manera adecuada, el uso por parte de los alumnos, de las herramientas del pensamiento en la solución de problemas, estimulando el potencial creativo y crítico de los mismos.",

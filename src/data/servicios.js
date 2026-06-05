@@ -1,16 +1,16 @@
-import DesingIco from "../components/icons/DesingIcon.astro";
+import DesignIcon from "../components/icons/DesignIcon.astro";
 import ProjectsIco from "../components/icons/ProjectsIcon.astro";
 import WorkShopIco from "../components/icons/WorkShopIcon.astro";
 import AudioVisualIco from "../components/icons/AudioVisualIcon.astro";
 import CoachingIco from "../components/icons/CoachingIcon.astro";
-import TecnologyIcon from "../components/icons/TecnologyIcon.astro";
+import TechnologyIcon from "../components/icons/TechnologyIcon.astro";
 
 
 export const servicios = [
   {
     titulo: "Diseño Instruccional",
     descripcion: "Diseño de entornos educativos experienciales, lúdicos y centrados en las personas.",
-    icono: DesingIco,
+    icono: DesignIcon,
     color:  "text-blue-500"
   },
   {
@@ -40,7 +40,7 @@ export const servicios = [
   {
     titulo: "Tecnología educativa",
     descripcion: "Diseño y enseñanza de ambientes virtuales para el aprendizaje, objetos virtuales de aprendizaje y recursos virtuales de enseñanza.",
-    icono: TecnologyIcon,
+    icono: TechnologyIcon,
     color: "text-cyan-500"
   }
 ];
